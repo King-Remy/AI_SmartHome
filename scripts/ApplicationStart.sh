@@ -1,4 +1,8 @@
 #!/bin/bash
 ##### Start http service
 
-sudo service httpd start
+cd /home/app/SmartHome/
+#####   Creating a service call SmartHome
+sudo forever-service Install SmartHome -r app
+##### start a service called SmartHome
+sudo service SmartHome start

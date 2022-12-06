@@ -1,9 +1,8 @@
 #!/bin/bash
 
+# update the system
 
+rm -rf /home/app/SmartHome
 
-# delete all content of folder html
-rm -rf /var/www/html
-
-#update the system
-sudo yum -y update
+sudo apt-get -y update
+sudo apt-get -y upgrade

@@ -1,4 +1,4 @@
 #!/bin/bash
-# stop http service
+# Delete SmartHome service
 
-sudo service httpd stop
+sudo forever-service delete SmartHome
