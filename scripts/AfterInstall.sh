@@ -3,5 +3,5 @@
 ### Install Modules
 
 cd /home/app/SmartHome/
-npm Install
+npm install
 
