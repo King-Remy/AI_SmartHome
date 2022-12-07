@@ -3,6 +3,6 @@
 
 cd /home/app/SmartHome/
 #####   Creating a service call SmartHome
-sudo forever-service Install SmartHome -r app
+sudo forever-service install SmartHome -r app
 ##### start a service called SmartHome
 sudo service SmartHome start
