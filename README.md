@@ -1,4 +1,4 @@
-# Deploy tflite Object Detection model on Raspberry Pi4 with PYQT
+# Deploy tflite Object Detection model on Raspberry Pi4 and integrating Adafruit Cloud 
 
 This is the code repository of human Detection module to perform real-time human detection using [TensorFlor Lite](https://www.tensorflow.org/lite), images streamed from a web camera and running on Edge device of Raspberry Pi to actuate a fan. It draws a bounding box around each detected object in the camera preview (when a person score is detected as 1 or above) and pushes detected people and the temperature to [Adafruit Cloud](https://www.adafruit.com/). To get started, you will have to download the example files.
 
