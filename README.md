@@ -1,55 +1,57 @@
-# UK Electricty Consumption
- This project analyzes and presents the electricity consumption data to users on a postcode level for the UK using Python and Jupyter Notebook.
+# Deploy tflite Object Detection model on Raspberry Pi4 with PYQT
 
- ## Task List
-- [x] Data Collection from the UK government website [here](https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/1050244/Postcode_Level_Standard_Electricity_2020_A_to_K.csv/preview) and geographical postcode location data from Ordinance Survey [here](https://osdatahub.os.uk/downloads/open/CodePointOpen).
-- [x] Create web API with Python and Flask.
-- [x] Visualize total anual electrcity consumption per postcode from areacode selection using Plotly.
-- [ ] Deploy API to server.
-- [ ] Establish a Machine Learning model to predict future elctricity consumption.
+This is the code repository of human Detection module to perform real-time human detection using [TensorFlor Lite](https://www.tensorflow.org/lite), images streamed from a web camera and running on Edge device of Raspberry Pi to actuate a fan. It draws a bounding box around each detected object in the camera preview (when a person score is detected as 1 or above) and pushes detected people and the temperature to [Adafruit Cloud](https://www.adafruit.com/). To get started, you will have to download the example files.
 
-### API for Collected data from Gov UK and Ordinance Survey websites
-![data_collection](/Asset/data_collection.gif)
-![data_collection2](/Asset/data_collection2.gif)
+First, clone this Git repo onto your Raspberry Pi like this:
+```
+git clone https://github.com/tensorflow/examples.git
+```
 
-### Visualization of selected areacodes
-![visualization](/Asset/visualization.gif)
-![home_feature](/Asset/home_feature.gif)
+## Prerequisites
+* Web Camera
+* Raspberry Pi
+* Monitor
+* Breadbroad
+* Adafruit Cloud
+* python 
+* Opencv  
+* numpy
 
-# Development
+To install the Python dependencies and EfficientDet-Lite model, run:
 
-## Environment Setup
-**Note:**
-The datasets are available to be downloaded at UK government website [here](https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/1050244/Postcode_Level_Standard_Electricity_2020_A_to_K.csv/preview) and and geographical postcode location data from Ordinance Survey [here](https://osdatahub.os.uk/downloads/open/CodePointOpen). These are the 2 datasets required for this project.
+Create a Python virtual environment for the TFLite samples (optional but strongly recommended)
+```
+python3 -m venv ~/tflite
+```
+Run this command whenever you open a new Terminal window/tab to activate the environment.
+```
+source ~/tflite/bin/activate
+```
+Next,
 
-* **Create the virtual environment and install packages**
-  ```
-  python3 -m venv venv
-  source venv/bin/activate
-  pip3 install -r requirements.txt
-  ```
+```
+go to examples/lite/examples/object_detection/raspberry_pi
 
-* **Download Database**
-  * Download sqlite database for API:  
-    ```
-    https://drive.google.com/file/d/1TD60eIu8pyFFAjPKVvDbJoo4ofHItJk3/view?usp=sharing
-    ```
+Take the sh setup.sh and requirements.txt file and place in working directory
 
-* **Set up .env and .yaml file**
-  * Create .env and .yaml files:
+# The script install the required dependencies and download the TFLite models.
+sh setup.sh
+```
 
-  ![envsetup](/Asset/envsetup.JPG)
-  ![yamlareacodes](/Asset/yamlareacodes.JPG)
+Next, to run the code on Raspberry Pi, use `run.py` as follows:
 
-* **Download and extract**
-  * Download UK postcode level data:  
-    ```
-    curl -O https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/1050244/Postcode_Level_Standard_Electricity_2020_A_to_K.csv
-    ```
-  * Download UK geographic postcode data:
-    ```
-    https://api.os.uk/downloads/v1/products/CodePointOpen/downloads?area=GB&format=GeoPackage&redirect
-    ```
+```
+python3 run.py 
+```
+## Hardware Setup
 
+![Sensor_and_actuation_unit_bb](/Assets/Sensor_and_actuation_unit_bb.jpg)
 
-  
+## Result
+* Human detection 
+![human_detection](/Assets/human_detection.gif)
+
+* Adafruit Cloud dashboard of person detected
+![cloud1](/Assets/cloud1.png)
+
+![cloud2](/Assets/cloud2.png)
