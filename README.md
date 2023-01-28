@@ -49,6 +49,7 @@ python3 run.py
 
 ## Result
 * Human detection 
+
 ![human_detection](/Assets/human_detection.gif)
 
 * Adafruit Cloud dashboard of person detected
