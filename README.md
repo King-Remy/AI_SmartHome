@@ -57,5 +57,5 @@ python3 run.py
 ![human_detection](/Assets/human_detection.gif)
 
 * Adafruit Cloud dashboard of person detected
-![AdafruitDashboard](/Assets/AdafruitDashboard.jpg)
+![AdafruitDashboard](/Assets/AdafruitDashboard.png)
 ![cloud1](/Assets/cloud1.png)
