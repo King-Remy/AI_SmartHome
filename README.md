@@ -32,10 +32,14 @@ Next,
 ```
 go to examples/lite/examples/object_detection/raspberry_pi
 
-Take the sh setup.sh and requirements.txt file and place in working directory
+Take the sh setup.sh and requirements.txt file and place in your working directory
 
-# The script install the required dependencies and download the TFLite models.
+# The script installs the required dependencies and download the TFLite models.
 sh setup.sh
+```
+Next, add your Adafruit IO Key
+```
+Go to secret.py and paste your Adafruit username and active key for image publishing to cloud
 ```
 
 Next, to run the code on Raspberry Pi, use `run.py` as follows:
@@ -48,11 +52,10 @@ python3 run.py
 ![Sensor_and_actuation_unit_bb](/Assets/Sensor_and_actuation_unit_bb.jpg)
 
 ## Result
-* Human detection 
+* Human detection and fan actuation
 
 ![human_detection](/Assets/human_detection.gif)
 
 * Adafruit Cloud dashboard of person detected
+![AdafruitDashboard](/Assets/AdafruitDashboard.jpg)
 ![cloud1](/Assets/cloud1.png)
-
-![cloud2](/Assets/cloud2.png)

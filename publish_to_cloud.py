@@ -3,27 +3,30 @@ import threading
 import time
 import json
 import board
-# import adafruit_dht
+import adafruit_dht
 import random
 import sys
 import time
 from Adafruit_IO import MQTTClient
+
+
 from secret import user, password
-from secret import user, password, old_password, old_user
 import  binascii
 import base64
 from PIL import  Image 
 import os  
 
 
+dhtDevice = adafruit_dht.DHT11(board.D4)
+dhtDevice = adafruit_dht.DHT11(board.D4, use_pulseio=False)
 # Set to your Adafruit IO key.
 # Remember, your key is a secret,
 # so make sure not to publish it when you publish this code!
-ADAFRUIT_IO_KEY = old_password
+ADAFRUIT_IO_KEY = password
 
 # Set to your Adafruit IO username.
 # (go to https://accounts.adafruit.com to find your username)
-ADAFRUIT_IO_USERNAME = old_user
+ADAFRUIT_IO_USERNAME = user
 
 
 # Define callback functions which will be called when certain events happen.
@@ -62,10 +65,10 @@ def compressMe(file, verbose = False):
     # your desired level, The more 
     # the value of quality variable 
     # and lesser the compression
-    picture.save("compressed_"+file, 
+    picture.save("compressed_person.jpeg", 
                  "JPEG", 
                  optimize = True, 
-                 quality = 90)
+                 quality = 10)
     return
 
 # Create an MQTT client instance.
@@ -92,15 +95,17 @@ print('Publishing a new message every 10 seconds (press Ctrl-C to quit)...')
 
 while True:
    try: 
-      value = random.randint(0, 100)
-      compressMe("dog.jpeg")
-      with open("compressed_dog.jpeg", "rb") as image2string:
+    #   value = random.randint(0, 100)
+      temperature_c = dhtDevice.temperature
+      humidity = dhtDevice.humidity
+      compressMe("inference/person.jpeg")
+      with open("compressed_person.jpeg", "rb") as image2string:
         converted_string = base64.b64encode(image2string.read())
         print(converted_string)
-    #   print('Publishing {0} to DemoFeed.'.format())
-    #   client.publish('temp_reading', )
-    #   print(byteArr)
+    #   client.publish('image', converted_string.decode("utf-8").strip())
       client.publish('image', converted_string.decode("utf-8").strip())
+      client.publish('humid_reading', humidity)
+      client.publish('temp_reading', temperature_c)
       time.sleep(5)
    
    except RuntimeError as error:
