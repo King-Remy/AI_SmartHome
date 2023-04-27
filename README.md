@@ -51,7 +51,7 @@ python3 run.py
 ## Result
 * Human detection and fan actuation
 
-![human_detection](/Assets/human_detection.gif)
+![human_detection](/Assets/human_detection.mov)
 
 * Adafruit Cloud dashboard of person detected
 ![AdafruitDashboard](/Assets/AdafruitDashboard.png)
