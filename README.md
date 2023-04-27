@@ -27,15 +27,12 @@ Run this command whenever you open a new Terminal window/tab to activate the env
 ```
 source ~/tflite/bin/activate
 ```
-Next,
+Next, to install dependencies required for the project
 
 ```
-go to examples/lite/examples/object_detection/raspberry_pi
-
-Take the sh setup.sh and requirements.txt file and place in your working directory
+Run sh setup.sh
 
 # The script installs the required dependencies and download the TFLite models.
-sh setup.sh
 ```
 Next, add your Adafruit IO Key
 ```
